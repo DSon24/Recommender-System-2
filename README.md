@@ -13,7 +13,7 @@ The FAISS step narrows a large catalog to a candidate set. The notebook **does n
 
 ## Current notebook run
 
-The saved run in [`notebooks/two_tower_product_search.ipynb`](notebooks/two_tower_product_search.ipynb) reports **2,679,017 joined query–product rows** and **1,814,675 indexed product vectors**. It includes training history, a nearest-product inspection, and example text searches. The search examples are qualitative checks; the notebook does not yet report retrieval Recall@*k*, NDCG, or a comparison with a ranking baseline.
+The earlier prototype used a `dataset_150k.csv` input, which is the roughly 150,000-pair scope described on the résumé. The saved run in [`notebooks/two_tower_product_search.ipynb`](notebooks/two_tower_product_search.ipynb) now downloads the full ESCI examples and reports **2,679,017 joined query–product rows** and **1,814,675 indexed product vectors**. It includes training history, a nearest-product inspection, and example text searches. The search examples are qualitative checks; the notebook does not yet report retrieval Recall@*k*, NDCG, or a comparison with a ranking baseline.
 
 The notebook currently joins the examples and product table on `product_id` alone. The ESCI source demonstrates a join on both `product_locale` and `product_id`; the current row counts and evaluation should therefore be treated as exploratory until that join is corrected and the notebook is rerun. The tokenizer is also fitted on text from both the training and validation rows, so validation numbers should not be presented as a final generalization estimate.
 
